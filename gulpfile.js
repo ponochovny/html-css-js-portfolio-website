@@ -9,7 +9,10 @@ const terser = require('gulp-terser')
 
 gulp.task('sass', function () {
 	gulp
-		.src(['node_modules/swiper/swiper-bundle.css'])
+		.src([
+			'node_modules/swiper/swiper-bundle.css',
+			'node_modules/aos/dist/aos.css',
+		])
 		.pipe(sass().on('error', sass.logError))
 		.pipe(concat('libs.min.css'))
 		.pipe(cleanCSS())
@@ -26,7 +29,10 @@ gulp.task('sass', function () {
 
 gulp.task('script', function () {
 	gulp
-		.src(['node_modules/swiper/swiper-bundle.js'])
+		.src([
+			'node_modules/swiper/swiper-bundle.js',
+			'node_modules/aos/dist/aos.js',
+		])
 		.pipe(concat('libs.min.js'))
 		.pipe(terser())
 		.pipe(gulp.dest('dist/js'))
@@ -68,16 +74,7 @@ async function optimizeImages() {
 		)
 		.pipe(gulp.dest('dist/assets'))
 }
-gulp.task('images', optimizeImages)
-
-gulp.task('watch', function () {
-	livereload.listen()
-	gulp.watch('src/sass/**/*.scss', gulp.series('sass'))
-	gulp.watch('src/*.html', gulp.series('html'))
-	gulp.watch('src/js/main.js', gulp.series('script')) // Следить за изменениями в main.js
-
-	// Add other files you need to keep an eye on here
-})
+gulp.task('minAssetsImages', optimizeImages)
 
 // Task to run BrowserSync
 gulp.task('serve', function () {
@@ -97,13 +94,11 @@ gulp.task('serve', function () {
 })
 
 // Task to copy .mp4 files
-gulp.task('copyMp4', function () {
+gulp.task('assets', function () {
 	return gulp
-		.src('assets/**/*.mp4') // Select all .mp4 files in the assets folder and subfolders
+		.src('assets/**/*') // Select all files in the assets folder and subfolders
 		.pipe(gulp.dest('dist/assets')) // Copy them to dist/assets maintaining the same folder structure
 })
 
-gulp.task('assets', gulp.series('images', 'copyMp4'))
-
 // Default task
-gulp.task('default', gulp.series('sass', 'script', 'html', 'copyMp4', 'serve'))
+gulp.task('default', gulp.series('sass', 'script', 'html', 'assets', 'serve'))
