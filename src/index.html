@@ -26,11 +26,13 @@
 			</div> -->
 
 		<nav id="desktop-nav">
-			<div class="logo">Maksym Vulchyn</div>
-			<div>
+			<div class="logo" data-aos="fade-bottom" data-aos-duration="2000">
+				Maksym Vulchyn
+			</div>
+			<div data-aos="fade-bottom" data-aos-duration="2000">
 				<ul class="nav-links">
 					<li><a href="#about">About</a></li>
-					<li><a href="#skills">Skills</a></li>
+					<li><a href="#experience">Skills</a></li>
 					<li><a href="#projects">Projects</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
@@ -44,52 +46,69 @@
 					<span></span>
 					<span></span>
 				</div>
-				<div class="menu-links">
-					<li><a href="#about" onclick="toggleMenu()">About</a></li>
-					<li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-					<li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-					<li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-				</div>
 			</div>
 		</nav>
+
+		<div class="menu-links">
+			<div class="hamburger-icon" onclick="toggleMenu()">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<ul>
+				<li><a href="#about" onclick="toggleMenu()">About</a></li>
+				<li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
+				<li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+				<li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+			</ul>
+		</div>
 		<section id="profile">
-			<div class="section__pic-container">
+			<div
+				class="section__pic-container"
+				data-aos="fade"
+				data-aos-duration="750"
+			>
 				<img
 					src="assets/profile-pic.png"
 					alt="Maksym Vulchyn profile picture"
 				/>
 			</div>
-			<div class="section__text">
+			<div class="section__text" data-aos="fade" data-aos-duration="1200">
 				<p class="section__text__p1">Hello, I'm</p>
-				<h1 class="title">Max</h1>
+				<h2 class="title">Max</h2>
 				<p class="section__text__p2">
 					Graphic Designer, Video Editor, 3d Artist
 				</p>
 
 				<div class="btn-container">
-					<button class="btn btn-color-1" onclick="location.href='./#contact'">
-						Contact Info
-					</button>
+					<a class="btn btn-color-1" href="#contact"> Contact Info </a>
 				</div>
 				<div id="socials-container">
-					<img
-						src="assets/linkedin.png"
-						alt="Linkedin"
-						class="icon"
-						onclick="location.href='https://linkedin.com/in/maksymvulchyn/'"
-					/>
-					<img
-						src="assets/behance-logo-0DC7CB7635-seeklogo.com.png"
-						alt="Behance"
-						class="icon"
-						onclick="location.href='https://www.behance.net/maxvulchyn'"
-					/>
+					<a
+						href="https://linkedin.com/in/maksymvulchyn"
+						target="_blank"
+						title="LinkedIn"
+					>
+						<img src="assets/linkedin.png" alt="Linkedin" height="100%" />
+					</a>
+					<a
+						href="https://www.behance.net/maxvulchyn"
+						target="_blank"
+						title="Behance"
+					>
+						<img
+							src="assets/behance-logo-0DC7CB7635-seeklogo.com.png"
+							alt="Behance"
+							height="100%"
+						/>
+					</a>
 				</div>
 			</div>
 		</section>
-		<section id="about">
+		<section class="about" data-aos="fade-up" data-aos-offset="150">
+			<div id="about" class="anchor"></div>
 			<p class="section__text__p1">Get To Know More</p>
-			<h1 class="title">About Me</h1>
+			<h2 class="title">About Me</h2>
 			<div class="section-container">
 				<div class="section__pic-container">
 					<img
@@ -140,9 +159,10 @@
 				onclick="location.href='./#experience'"
 			/>
 		</section>
-		<section id="experience">
+		<section class="experience" data-aos="fade-up" data-aos-offset="150">
+			<div id="experience" class="anchor"></div>
 			<p class="section__text__p1">Explore My</p>
-			<h1 class="title">Skills</h1>
+			<h2 class="title">Skills</h2>
 			<div class="experience-details-container">
 				<div class="about-containers">
 					<div class="details-container">
@@ -407,15 +427,22 @@
 				onclick="location.href='./#projects'"
 			/>
 		</section>
-		<section id="projects">
+		<section class="projects" data-aos="fade-up" data-aos-offset="150">
+			<div id="projects" class="anchor"></div>
 			<p class="section__text__p1">Browse My</p>
 			<div class="slider-block">
-				<h1 class="title">Works</h1>
+				<h2>Works</h2>
 
 				<div class="swiper mySwiper">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<video src="assets/meat star.mp4" alt="meat star" loop autoplay />
+							<video
+								src="assets/meat star.mp4"
+								alt="meat star"
+								loop
+								autoplay
+								muted
+							/>
 						</div>
 						<div class="swiper-slide">
 							<img src="assets/project-1.png" alt="" />
@@ -428,17 +455,22 @@
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
+					<!-- <div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div> -->
 				</div>
 			</div>
-
-			<div class="slider-block">
-				<h1 class="title">3d</h1>
+			<div class="slider-block" data-aos="fade-up" data-aos-offset="70">
+				<h2>3d</h2>
 				<div class="swiper mySwiper">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<video src="assets/meat star.mp4" alt="meat star" loop autoplay />
+							<video
+								src="assets/meat star.mp4"
+								alt="meat star"
+								loop
+								autoplay
+								muted
+							/>
 						</div>
 						<div class="swiper-slide">
 							<img src="assets/project-1.png" alt="" />
@@ -451,19 +483,18 @@
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
+					<!-- <div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div> -->
 				</div>
 			</div>
-
-			<div class="slider-block">
-				<h1 class="title">Video Editing</h1>
-				<div class="swiper mySwiper">
+			<div class="slider-block" data-aos="fade-up" data-aos-offset="70">
+				<h2>Video Editing</h2>
+				<div class="swiper mySwiper v2">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<iframe
-								width="560"
-								height="315"
+								width="100%"
+								height="100%"
 								src="https://www.youtube.com/embed/nEPhaprM8Sg?si=1tjiWPpMLs6Yq5Hn"
 								title="YouTube video player"
 								frameborder="0"
@@ -489,28 +520,10 @@
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>
-					<div class="swiper-button-prev"></div>
-					<div class="swiper-button-next"></div>
+					<!-- <div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div> -->
 				</div>
 			</div>
-			<!-- <div class="slider-wrapper">
-				<div class="slider">
-					<video
-						id="slide-1"
-						src="assets/meat star.mp4"
-						alt="meat star"
-						loop
-						autoplay
-					/>
-					<video id="slide-2" src="assets/meat star.mp4" alt="meat star" />
-					<video id="slide-3" src="assets/meat star.mp4" alt="meat star" />
-				</div>
-				<div class="slider-nav">
-					<a href="#slide-1"></a>
-					<a href="#slide-2"></a>
-					<a href="#slide-3"></a>
-				</div>
-			</div> -->
 		</section>
 
 		<script src="js/libs.min.js"></script>
