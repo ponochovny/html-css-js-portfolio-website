@@ -3,7 +3,6 @@ const browserSync = require('browser-sync').create()
 const sass = require('gulp-sass')(require('sass'))
 const htmlmin = require('gulp-htmlmin')
 const cleanCSS = require('gulp-clean-css')
-const livereload = require('gulp-livereload')
 const concat = require('gulp-concat')
 const terser = require('gulp-terser')
 
@@ -17,14 +16,12 @@ gulp.task('sass', function () {
 		.pipe(concat('libs.min.css'))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('dist/css'))
-		.pipe(browserSync.stream())
 
 	return gulp
 		.src('src/sass/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(cleanCSS())
 		.pipe(gulp.dest('dist/css'))
-		.pipe(browserSync.stream())
 })
 
 gulp.task('script', function () {
@@ -38,8 +35,8 @@ gulp.task('script', function () {
 		.pipe(gulp.dest('dist/js'))
 
 	return gulp
-		.src('src/js/main.js') // Путь к вашему файлу main.js
-		.pipe(concat('main.min.js')) // Минимизированный файл будет называться main.min.js
+		.src('src/js/main.js') // The path to your file main.js
+		.pipe(concat('main.min.js')) // Minimized file will be named main.min.js
 		.pipe(terser())
 		.pipe(gulp.dest('dist/js'))
 })
@@ -50,7 +47,6 @@ gulp.task('html', function () {
 		.src('src/*.html')
 		.pipe(htmlmin({ collapseWhitespace: true })) // Minification of HTML files
 		.pipe(gulp.dest('dist'))
-		.pipe(browserSync.stream())
 })
 
 async function optimizeImages() {
@@ -102,3 +98,9 @@ gulp.task('assets', function () {
 
 // Default task
 gulp.task('default', gulp.series('sass', 'script', 'html', 'assets', 'serve'))
+
+// Build task
+gulp.task(
+	'build',
+	gulp.series('sass', 'script', 'html', 'assets', 'minAssetsImages')
+)
