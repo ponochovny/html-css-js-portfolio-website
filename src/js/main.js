@@ -5,26 +5,25 @@ var swiper = new Swiper('.mySwiper', {
 	pagination: {
 		el: '.swiper-pagination',
 	},
-	// effect: 'coverflow',
 	grabCursor: true,
 	centeredSlides: true,
-	spaceBetween: 16,
+	// loop: true,
 	initialSlide: 1,
+	spaceBetween: 0,
 	breakpoints: {
-		// when window width is >= 320px
 		768: {
-			spaceBetween: 30,
+			spaceBetween: 20,
 		},
 	},
-	// loop: true,
-	// coverflowEffect: {
-	// 	rotate: 0,
-	// 	stretch: 0,
-	// 	depth: 100,
-	// 	modifier: 1,
-	// 	scale: 0.7,
-	// 	slideShadows: true,
-	// },
+	effect: 'coverflow',
+	coverflowEffect: {
+		rotate: 0,
+		scale: 0.7,
+		// stretch: 0,
+		// depth: 50,
+		// modifier: 1,
+		// slideShadows: true,
+	},
 	// navigation: {
 	// 	nextEl: '.swiper-button-next',
 	// 	prevEl: '.swiper-button-prev',
