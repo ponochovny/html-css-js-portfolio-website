@@ -28,12 +28,11 @@ var swiper = new Swiper('.swiper', {
 	// 	nextEl: '.swiper-button-next',
 	// 	prevEl: '.swiper-button-prev',
 	// },
-	// on: {
-	// 	click() {
-	// 		console.log('index', this.clickedIndex)
-	// 		swiper2.slideTo(this.clickedIndex)
-	// 	},
-	// },
+	on: {
+		click(e) {
+			e.slideTo(this.clickedIndex)
+		},
+	},
 })
 
 function toggleMenu() {
