@@ -1,6 +1,6 @@
 AOS.init()
 
-var swiper = new Swiper('.mySwiper', {
+var swiper = new Swiper('.swiper', {
 	slidesPerView: 'auto',
 	pagination: {
 		el: '.swiper-pagination',
