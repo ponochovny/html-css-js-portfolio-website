@@ -75,6 +75,19 @@ h2 {
 		@media screen and (max-width: 640px) {
 			width: 70vw;
 		}
+
+		&:after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			pointer-events: all;
+			z-index: 1;
+		}
+		&.swiper-slide-active {
+			&:after {
+				pointer-events: none;
+			}
+		}
 	}
 	.swiper-wrapper {
 		.swiper-slide {
