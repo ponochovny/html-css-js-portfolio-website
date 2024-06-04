@@ -1,7 +1,56 @@
+:root {
+	--main-bg-color: white;
+	--text-color: rgb(30, 30, 30);
+	--text-paragraph: rgb(85, 85, 85);
+	--text-anchor: rgb(30, 30, 30);
+	--text-anchor-hover: rgb(128, 128, 128);
+	--btn-border-color: rgb(53, 53, 53);
+	--btn-color-hover: rgb(255, 255, 255);
+	--btn-bg-color-hover: rgb(53, 53, 53);
+	--swiper-pagination-bullet: #171717;
+	--swiper-pagination-bullet-active: rgb(30, 30, 30);
+
+	.dark {
+		--main-bg-color: rgb(30, 30, 30);
+		--text-color: rgb(245, 245, 245);
+		--text-paragraph: rgb(210, 210, 210);
+		--text-anchor: rgb(245, 245, 245);
+		--text-anchor-hover: rgb(175, 175, 175);
+		--btn-border-color: rgb(219, 219, 219);
+		--btn-color-hover: rgb(30, 30, 30);
+		--btn-bg-color-hover: rgb(219, 219, 219);
+		--swiper-pagination-bullet: #f0f0f0;
+		--swiper-pagination-bullet-active: rgb(229, 229, 229);
+	}
+}
+
+#themeBtn {
+	display: inline-flex;
+	height: 24px;
+	width: 24px;
+	margin-top: 4px;
+	opacity: 0.8;
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+.dark {
+	#themeBtn {
+		filter: invert(0.95);
+		opacity: 1;
+	}
+}
+
 h2 {
 	font-size: 3rem;
 	text-align: center;
-	margin-bottom: 20px;
+	margin-bottom: 2rem;
 
 	@media screen and (max-width: 768px) {
 		font-size: 2rem;
@@ -156,8 +205,9 @@ h2 {
 		bottom: 0px;
 	}
 	.swiper-pagination-bullet {
+		background-color: var(--swiper-pagination-bullet);
 		&.swiper-pagination-bullet-active {
-			background-color: black;
+			background-color: var(--swiper-pagination-bullet-active);
 		}
 	}
 }
@@ -174,13 +224,23 @@ h2 {
 
 body {
 	font-family: 'Poppins', sans-serif;
+	background-color: var(--main-bg-color);
+	color: var(--text-color);
+
+	transition: background-color 0.3s ease;
 }
 
 html {
 	scroll-behavior: smooth;
 }
+
+button {
+	border: none;
+	background: none;
+}
+
 p {
-	color: rgb(85, 85, 85);
+	color: var(--text-paragraph);
 }
 
 /* TRANSITION */
@@ -220,13 +280,13 @@ nav {
 }
 
 a {
-	color: black;
+	color: var(--text-anchor);
 	text-decoration: none;
 	text-decoration-color: white;
 }
 
 a:hover {
-	color: grey;
+	color: var(--text-anchor-hover);
 	text-decoration: underline;
 	text-underline-offset: 1rem;
 	text-decoration-color: rgb(181, 181, 181);
@@ -274,7 +334,7 @@ a:hover {
 	span {
 		width: 100%;
 		height: 2px;
-		background-color: black;
+		background-color: var(--text-color);
 		transition: all 0.3 ease-in-out;
 
 		&:first-child {
@@ -309,7 +369,7 @@ a:hover {
 	width: 100%;
 	height: 100%;
 	z-index: 1;
-	background-color: white;
+	background-color: var(--main-bg-color);
 	transition: all 0.15s ease-in-out;
 
 	display: flex;
@@ -341,7 +401,7 @@ a:hover {
 	padding: 10px;
 	text-align: center;
 	font-size: 2rem;
-	color: black;
+	color: var(--text-color);
 	text-decoration: none;
 	transition: all 0.3 ease-in-out;
 }
@@ -400,6 +460,10 @@ section {
 	padding-top: 0;
 	min-height: 400px;
 
+	h2 {
+		margin-bottom: 20px;
+	}
+
 	@media screen and (max-width: 1024px) {
 		min-height: 360px;
 	}
@@ -439,9 +503,13 @@ section {
 	.socials-container {
 		display: flex;
 		justify-content: center;
-		margin-top: 1rem;
+		margin-top: 2rem;
 		gap: 1rem;
 		height: 2rem;
+
+		@media screen and (max-width: 768px) {
+			margin-top: 1rem;
+		}
 	}
 }
 
@@ -476,6 +544,7 @@ section {
 .icon {
 	height: 2rem;
 	cursor: pointer;
+	transition: opacity 0.3s ease;
 
 	&.arrow {
 		position: absolute;
@@ -487,6 +556,19 @@ section {
 		}
 		@media screen and (max-width: 768px) {
 			right: -36px;
+		}
+	}
+
+	&:hover {
+		opacity: 0.6;
+	}
+}
+.dark {
+	.icon {
+		filter: invert(0.94);
+
+		&:hover {
+			opacity: 0.8;
 		}
 	}
 }
@@ -516,7 +598,7 @@ section.contact {
 	position: relative;
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 1rem;
 	width: auto;
 	.icon {
 		height: 2rem;
@@ -532,18 +614,18 @@ section.contact {
 	display: inline-block;
 	font-weight: 600;
 	transition: all 300ms ease;
-	padding: 1rem;
+	padding: 12px 24px;
 	border-radius: 2rem;
 	text-decoration: none !important;
 	text-wrap: nowrap;
 
 	&.btn-accent {
-		border: rgb(53, 53, 53) 0.1rem solid;
+		border: var(--btn-border-color) 1px solid;
 
 		&:hover {
-			border: rgb(53, 53, 53) 0.1rem solid;
-			color: white;
-			background: rgb(0, 0, 0);
+			border: var(--btn-border-color) 1px solid;
+			color: var(--btn-color-hover);
+			background: var(--btn-bg-color-hover);
 		}
 	}
 }
@@ -594,11 +676,17 @@ section.about {
 .details-container {
 	padding: 1.5rem;
 	flex: 1;
-	background: white;
 	border-radius: 2rem;
 	border: rgb(53, 53, 53) 0.1rem solid;
 	border-color: rgb(163, 163, 163);
 	text-align: center;
+
+	.icon {
+		&:hover {
+			cursor: default;
+			opacity: 1;
+		}
+	}
 }
 
 .section-container {
@@ -632,7 +720,7 @@ section.experience {
 
 	.details-container {
 		h2 {
-			color: rgb(85, 85, 85);
+			color: var(--text-paragraph);
 			font-weight: 600;
 			font-size: 1.75rem;
 			margin-bottom: 2rem;

@@ -43,3 +43,30 @@ function toggleMenu() {
 		el.classList.toggle('open')
 	})
 }
+
+const DARK_CLASS = 'dark'
+function setTheme(isDark) {
+	if (isDark) {
+		document.body.classList.add(DARK_CLASS)
+	} else {
+		document.body.classList.remove(DARK_CLASS)
+	}
+}
+
+function toggleTheme() {
+	const isDark = document.body.classList.contains(DARK_CLASS)
+
+	setTheme(!isDark)
+}
+
+function toggleThemeHandler() {
+	const isDark = document.body.classList.contains(DARK_CLASS)
+	toggleTheme()
+
+	// STORAGE
+	localStorage.setItem('theme', isDark ? 'light' : 'dark')
+}
+
+//
+const isDark = localStorage.getItem('theme') === 'dark'
+if (isDark) setTheme(true)
