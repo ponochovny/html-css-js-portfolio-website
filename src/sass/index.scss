@@ -11,8 +11,16 @@ h2 {
 .slider-block {
 	margin-bottom: 150px;
 
+	&:last-child {
+		margin-bottom: 100px;
+	}
+
 	@media screen and (max-width: 1024px) {
 		margin-bottom: 80px;
+
+		&:last-child {
+			margin-bottom: 20px;
+		}
 	}
 }
 
@@ -479,6 +487,41 @@ section {
 		}
 		@media screen and (max-width: 768px) {
 			right: -36px;
+		}
+	}
+}
+
+section.contact {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 6rem;
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.social-icons {
+		margin-top: 4rem;
+	}
+	a {
+		&.email {
+			font-weight: 500;
+		}
+	}
+}
+
+.social-icons {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	width: auto;
+	.icon {
+		height: 2rem;
+		img {
+			max-height: 100%;
 		}
 	}
 }

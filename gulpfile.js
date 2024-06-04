@@ -86,6 +86,8 @@ gulp.task('serve', function () {
 	// Monitor changes in dist and update the browser
 	gulp.watch('dist/**/*').on('change', browserSync.reload)
 
+	gulp.watch('assets/**/*', gulp.series('assets'))
+
 	gulp.watch('src/js/main.js', gulp.series('script')) // Watch changes in main.js
 })
 
