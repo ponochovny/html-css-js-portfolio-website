@@ -389,6 +389,16 @@ a:hover {
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+
+		li {
+			text-align: center;
+		}
+	}
+	#themeBtn {
+		height: 40px;
+		width: 40px;
+		margin-top: 0;
+		margin: 0 auto;
 	}
 	&.open {
 		opacity: 1;
